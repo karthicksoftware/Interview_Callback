@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" thread-count="4" parallel="tests">
+ <parameter name="exec" value="local"/> 
+  <test name="TestFirefox">
+   <parameter name="browser" value="firefox"/>    
+    <classes>
+      <class name="project.interview.selenium.SeleniumWaits"/>
+    </classes>
+  </test> 
+  
+  <test name="TestChrome">
+  <parameter name="browser" value="chrome"/> 
+    <classes>
+      <class name="project.interview.selenium.SeleniumWaits"/>
+    </classes>
+  </test> 
+  
+  <test name="TestPhantomJS">
+  <parameter name="browser" value="phantom"/> 
+    <classes>
+      <class name="project.interview.selenium.SeleniumWaits"/>
+    </classes>
+  </test> 
+  
+  <test name="TestIE">
+  <parameter name="browser" value="ie"/> 
+    <classes>
+      <class name="project.interview.selenium.SeleniumWaits"/>
+    </classes>
+  </test> 
+  
+</suite>
+

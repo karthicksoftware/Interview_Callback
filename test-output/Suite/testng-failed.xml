@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="4" name="Failed suite [Suite]" parallel="tests">
+  <parameter name="browser" value="ie"/>
+  <parameter name="exec" value="local"/>
+  <test name="TestFirefox(failed)" parallel="tests" preserve-order="true">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="exec" value="local"/>
+    <classes>
+      <class name="project.interview.selenium.SeleniumWaits">
+        <methods>
+          <include name="testHandleAjaxPageUsingDifferentWaits"/>
+          <include name="shutdown"/>
+          <include name="shutdown"/>
+          <include name="initializeBrowser"/>
+          <include name="initializeBrowser"/>
+          <include name="initializeBrowser"/>
+          <include name="initializeBrowser"/>
+        </methods>
+      </class> <!-- project.interview.selenium.SeleniumWaits -->
+    </classes>
+  </test> <!-- TestFirefox(failed) -->
+  <test name="TestIE(failed)" parallel="tests" preserve-order="true">
+    <parameter name="browser" value="ie"/>
+    <parameter name="exec" value="local"/>
+    <classes>
+      <class name="project.interview.selenium.SeleniumWaits">
+        <methods>
+          <include name="testHandleAjaxPageUsingDifferentWaits"/>
+          <include name="shutdown"/>
+          <include name="shutdown"/>
+          <include name="initializeBrowser"/>
+          <include name="initializeBrowser"/>
+          <include name="initializeBrowser"/>
+          <include name="initializeBrowser"/>
+        </methods>
+      </class> <!-- project.interview.selenium.SeleniumWaits -->
+    </classes>
+  </test> <!-- TestIE(failed) -->
+</suite> <!-- Failed suite [Suite] -->
