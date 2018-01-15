@@ -75,7 +75,7 @@ public class SeleniumWaits {
 			System.out.println(cookie);
 		}
 		System.out.println("==========================================================");
-		Assert.assertTrue(getElement(logout).isDisplayed(), "Logout is not displayed in the dom");
+		Assert.assertTrue(getElement(logout).isDisplayed(), "Logout is not  displayed in the dom");
 		driver.manage().deleteAllCookies();
 		System.out.println("Deleted all cookies...");
 		System.out.println("Cookies after deleting cookies");
