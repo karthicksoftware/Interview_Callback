@@ -1,6 +1,9 @@
 package project.interview.selenium;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
@@ -105,7 +108,7 @@ public class AppNexus {
 		DesiredCapabilities caps = null;
 		if (value.equals("chrome")) {
 			System.out.println("Chrome constructed");
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\MyDrivers\\chromedriver.exe");
 			caps = DesiredCapabilities.chrome();
 			getLogs(caps);
 			driver = new ChromeDriver(caps);
@@ -128,17 +131,23 @@ public class AppNexus {
 
 	private static void getLogs(DesiredCapabilities caps) throws Exception {
 		LoggingPreferences logPrefs = new LoggingPreferences();
-		logPrefs.enable(LogType.BROWSER, Level.SEVERE);
+		logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
 		caps.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
 	}
 
-	public void analyzeLog(String value, String URL) {
+	public void analyzeLog(String value, String URL) throws IOException {
 		System.out.println("Test what:" + value);
-		LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
+		LogEntries logEntries = driver.manage().logs().get(LogType.PERFORMANCE);
 		if (value.equals("chrome")) {
-			for (LogEntry entry : logEntries) {
-				System.out.println("JS Error: " + entry.getMessage());
-			}
+			/*for (LogEntry entry : logEntries) {
+				//System.out.println("JS Error: " + entry.getMessage());
+				BufferedWriter bw = new BufferedWriter(new FileWriter(System.getProperty("user.dir")+"\\logs.txt"));
+				bw.write(entry.getMessage());
+			}*/
+			/*BufferedWriter bw = new BufferedWriter(new FileWriter(System.getProperty("user.dir")+"\\logs.txt"));
+			bw.write(logEntries.getAll().toString());*/
+			Assert.assertTrue(logEntries.getAll().toString().contains("https://ib.adnxs.com/getuid?https://anmap.pch.com/appnexus_getuid_postback?appnxs_uid=$UID"));
+			System.out.println("Passed");
 		} else if (value.equals("firefox")) {
 			for (int i = 0; i < logEntries.getAll().size(); i++) {
 				System.out.println("JS Error: " + logEntries.getAll().get(logEntries.getAll().size() - i - 1).getMessage());
@@ -151,11 +160,11 @@ public class AppNexus {
 
 	@Test
 	@Parameters(value = { "browser" })
-	public void testMethod(String browser) throws InterruptedException {
+	public void testMethod(String browser) throws InterruptedException, IOException {
 		String url = "https://lottods.qa.pch.com";
 		//String url = "http://www.rferl.org/";
 		driver.get(url);
-		driver.switchTo().alert().dismiss();
+		//driver.switchTo().alert().dismiss();
 		driver.manage().window().maximize();
 		Thread.sleep(2000);
 		analyzeLog(browser, url);
