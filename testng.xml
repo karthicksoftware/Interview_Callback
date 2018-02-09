@@ -2,17 +2,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
  <parameter name="exec" value="sd"/> 
-  <test name="TestFirefox">
+  <!-- <test name="TestFirefox">
    <parameter name="browser" value="firefox"/>    
     <classes>
       <class name="project.interview.selenium.SeleniumWaits"/>
     </classes>
-  </test> 
+  </test>  -->
   
    <test name="TestChrome">
   <parameter name="browser" value="chrome"/> 
     <classes>
-      <class name="project.interview.selenium.SeleniumWaits"/>
+      <class name="project.interview.selenium.AppNexus"/>
     </classes>
   </test> 
   
