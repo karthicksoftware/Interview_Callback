@@ -31,9 +31,6 @@
 			<artifactId>testng</artifactId>
 			<version>6.5.1</version>
 			<type>jar</type>
-
-			<scope>compile</scope>
-			<optional>false</optional>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
 		<dependency>
