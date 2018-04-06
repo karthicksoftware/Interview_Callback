@@ -146,7 +146,7 @@ public class AppNexus {
 			}*/
 			/*BufferedWriter bw = new BufferedWriter(new FileWriter(System.getProperty("user.dir")+"\\logs.txt"));
 			bw.write(logEntries.getAll().toString());*/
-			Assert.assertTrue(logEntries.getAll().toString().contains("https://ib.adnxs.com/getuid?https://anmap.pch.com/appnexus_getuid_postback?appnxs_uid=$UID"));
+			Assert.assertTrue(logEntries.toString().contains("https://ib.adnxs.com/getuid?https://anmap.pch.com/appnexus_getuid_postback?appnxs_uid=$UID"));
 			System.out.println("Passed");
 		} else if (value.equals("firefox")) {
 			for (int i = 0; i < logEntries.getAll().size(); i++) {
