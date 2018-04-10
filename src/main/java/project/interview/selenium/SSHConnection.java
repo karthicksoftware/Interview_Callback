@@ -18,7 +18,7 @@ public class SSHConnection {
      */
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
-        String SFTPHOST = "slottodsweb01.pchoso.com";
+        String SFTPHOST = "qlottodsweb01.pchoso.com";
         int    SFTPPORT = 22;
         String SFTPUSER = "karunachalam";
         String SFTPPASS = "karunachalam4189";
@@ -45,7 +45,7 @@ public class SSHConnection {
             for(int i=0; i<filelist.size();i++){
                 LsEntry entry = (LsEntry) filelist.get(i);
                 System.out.println(entry.getFilename());
-                if(entry.getFilename().endsWith("-stg")){
+                if(entry.getFilename().endsWith("-qa")){
                 	buildNumber = entry.getFilename();
                 }
             }
